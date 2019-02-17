@@ -1,15 +1,15 @@
 <template>
   <div class="container">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
       <ul class="navbar-nav">
         <li class="nav-item">
           <router-link to="/" class="nav-link">Home</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/create" class="nav-link">Create Post</router-link>
+          <router-link to="/create" class="nav-link">Nova Notícia</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/posts" class="nav-link">Posts</router-link>
+          <router-link to="/posts" class="nav-link">Notícias</router-link>
         </li>
       </ul>
     </nav><br />
@@ -29,7 +29,7 @@
 </style>
 
 <script>
-
     export default{
+
     }
 </script>

@@ -8,17 +8,47 @@ use App\Post;
 
 class PostController extends Controller
 {
-    public function store(Request $request)
-    {
-      $post = new Post([
-        'title' => $request->get('title'),
-        'body' => $request->get('body')
-      ]);
+  public function store(Request $request)
+  {
+    $validate = validator($request->all(),[
 
-      $post->save();
+      'autor'   => 'required|max:100',
+      'titulo'  => 'required|max:255',
+      'data'    => 'required|date_format:"d/m/Y"',
+      'noticia' => 'required'
 
-      return response()->json('successfully added');
+    ]);
+
+    if($validate->fails()) {
+
+      return response()->json([
+        'message' => 'error',
+        'error' => $validate->getMessageBag()
+      ], 400);
+
     }
+
+    $result = Post::where('titulo', $request->titulo)->first();
+
+    if (!$result) {
+
+      $post = Post::create($request->all());
+
+      return response()->json([
+        'message' => 'success',
+        'notica' => $post
+      ], 200);
+
+    } else {
+
+      return response()->json([
+        'message' => 'error',
+        'error' => 'Título já cadastrado'
+      ], 409);
+
+    }
+
+  }
 
     public function index()
     {

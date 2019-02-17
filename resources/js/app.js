@@ -5,6 +5,9 @@ window.Vue = require('vue');
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
+import VueTheMask from 'vue-the-mask'
+Vue.use(VueTheMask);
+
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 
@@ -18,24 +21,24 @@ import EditComponent from './components/EditComponent.vue';
 
 const routes = [
   {
-      name: 'home',
-      path: '/',
-      component: HomeComponent
+    name: 'home',
+    path: '/',
+    component: HomeComponent
   },
   {
-      name: 'create',
-      path: '/create',
-      component: CreateComponent
+    name: 'create',
+    path: '/create',
+    component: CreateComponent
   },
   {
-      name: 'posts',
-      path: '/posts',
-      component: IndexComponent
+    name: 'posts',
+    path: '/posts',
+    component: IndexComponent
   },
   {
-      name: 'edit',
-      path: '/edit/:id',
-      component: EditComponent
+    name: 'edit',
+    path: '/edit/:id',
+    component: EditComponent
   }
 ];
 
