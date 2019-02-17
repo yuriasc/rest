@@ -23,7 +23,7 @@ const routes = [
   {
     name: 'home',
     path: '/',
-    component: HomeComponent
+    component: IndexComponent
   },
   {
     name: 'create',

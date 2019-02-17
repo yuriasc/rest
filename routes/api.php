@@ -8,6 +8,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/post/create', 'PostController@store');
 Route::get('/post/edit/{id}', 'PostController@edit');
-Route::put('/post/update/{id}', 'PostController@update');
+Route::put('/post/update/{id}/{noticia}', 'PostController@update');
 Route::delete('/post/delete/{id}', 'PostController@delete');
 Route::get('/posts', 'PostController@index');

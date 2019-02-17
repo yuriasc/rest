@@ -11,7 +11,11 @@ class Post extends Model
 
   protected $dates = [ 'data' ];
 
-  public function setDataAttribute( $value ) {
+  public function getDataAttribute($value) {
+    return Carbon::parse($value)->format('d/m/Y');
+  }
+
+  public function setDataAttribute($value) {
     $this->attributes['data'] = Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d');
   }
 }

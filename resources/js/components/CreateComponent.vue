@@ -32,7 +32,7 @@
         </div>
       </div><br />
       <div class="form-group">
-        <button class="btn btn-primary">Create</button>
+        <button class="btn btn-primary">Salvar</button>
       </div>
     </form>
   </div>
@@ -53,6 +53,8 @@
         .then((response) => {
           console.log('success')
           console.log(response)
+
+          alert('Noticia Cadastrada com sucesso')
           //this.$router.push({name: 'posts'});
         })
         .catch((error) => {
