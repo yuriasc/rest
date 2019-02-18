@@ -128,7 +128,7 @@ class PostController extends Controller
 
     if ($post) {
 
-      //$post->delete();
+      $post->delete();
 
       return response()->xml($post, $status = 200, $headers = [ 'Content-Type' => ' text/xml']);
 
