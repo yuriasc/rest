@@ -57,6 +57,46 @@ class PostController extends Controller
 
   public function edit($id)
   {
+    $post = Post::find($id);
+
+    if ($post) {
+      return response()->json($post);
+    } else {
+      return response()->json([
+        'message' => 'error',
+        'error' => 'Notícia não encontrada'
+      ], 404);
+    }
+
+    // $post = Post::where('id', $id)->get();
+
+    // if ($post->isNotEmpty()) {
+
+    //   $html = '<div>';
+
+    //   foreach($post as $val) {
+    //     $html .= '<div>' . $val->id . '</div>';
+    //     $html .= '<div>' . $val->titulo . '</div>';
+    //     $html .= '<div>' . $val->autor . '</div>';
+    //     $html .= '<div>' . $val->data . '</div>';
+    //     $html .= '<div>' . $val->noticia . '</div>';
+    //   }
+
+    //   $html .= '</div>';
+
+    //   return response($html)->header('Content-type', 'text/html');
+
+    // } else {
+
+    //   return response()->json([
+    //     'message' => 'error',
+    //     'error' => 'Notícia não encontrada'
+    //   ], 404);
+    // }
+  }
+
+  public function editHtml($id)
+  {
     $post = Post::where('id', $id)->get();
 
     if ($post->isNotEmpty()) {
@@ -81,9 +121,7 @@ class PostController extends Controller
         'message' => 'error',
         'error' => 'Notícia não encontrada'
       ], 404);
-
     }
-
   }
 
   public function update($id, $titulo, Request $request)

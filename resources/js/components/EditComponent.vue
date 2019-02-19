@@ -60,6 +60,7 @@
           console.log(encodeURI(uri))
           this.axios.put(encodeURI(uri), this.post).then((response) => {
             //this.$router.push({name: 'posts'});
+            alert('Noticia Atualizada com sucesso')
           });
         }
       }
