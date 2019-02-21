@@ -48,7 +48,7 @@
     },
     methods: {
       addPost(){
-        let uri = 'http://localhost/api/post/create';
+        let uri = path + '/api/post/create';
         this.axios.post(uri, this.post)
         .then((response) => {
           console.log('success')

@@ -49,14 +49,14 @@
         }
       },
       created() {
-        let uri = `http://localhost/api/post/edit/${this.$route.params.id}`;
+        let uri = path + `/api/post/edit/${this.$route.params.id}`;
         this.axios.get(uri).then((response) => {
           this.post = response.data;
         });
       },
       methods: {
         updatePost() {
-          let uri = `http://localhost/api/post/update/${this.$route.params.id}/${this.post.titulo}`;
+          let uri = `${path}/api/post/update/${this.$route.params.id}/${this.post.titulo}`;
           console.log(encodeURI(uri))
           this.axios.put(encodeURI(uri), this.post).then((response) => {
             //this.$router.push({name: 'posts'});
